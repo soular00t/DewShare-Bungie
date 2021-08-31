@@ -1,0 +1,279 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+    <title>DewShare</title>
+    <meta charset="utf-8" />
+
+    <!-- RESOURCE / ICO-->
+    <link type="image/x-icon" rel="icon" href="favicon.ico" />
+    <link type="image/x-icon" rel="shortcut icon" href="favicon.ico" />
+
+    <!-- RESOURCE / CSS -->
+    <link type="text/css" rel="stylesheet" href="site/css/fantality/fan-font.css" />
+    <link type="text/css" rel="stylesheet" href="site/css/fantality/fan-main.css" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+          rel="stylesheet"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+          crossorigin="anonymous">
+
+    <!-- RESOURCE / SCRIPTS -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+    <!-- MAIN -->
+    <div class="main">
+
+        <!-- NAVIGATION -->
+        <div class="content_navigation">
+            <div class="content_navigation_container">
+                <ul class="content_navigation_header">
+                    <li data-filter="0" class="nav_header_item selected"><i class="nav_header_item_arrow fa fa-chevron-down" aria-hidden="true"></i>DewShare</li>
+                    <li data-filter="1" class="nav_header_item">Reddit</li>
+                </ul>
+                <ul class="content_navigation_footer">
+                    <li data-filter="3" class="nav_footer_item selected"><i class="nav_header_item_arrow fa fa-chevron-down" aria-hidden="true"></i>Forge</li>
+                    <li data-filter="4" class="nav_footer_item">Files</li>
+                    <li data-filter="5" class="nav_footer_item">Community</li>
+                    <li data-filter="6" onclick="location='//browser.haloshare.org'" class="nav_footer_item">Servers</li>
+                </ul>
+            </div>
+            <div class="content_login">
+                <div class="content_login_container">
+                    <div class="content_login_header">
+                        <img class="content_login_header_avatar" src="site/src/images/icons/ico-avatar.gif" />
+                        <div class="content_login_header_container">
+                            <span class="content_login_header_title">Username</span>
+                            <span class="content_login_header_active">Last Active</span>
+                        </div>
+                    </div>
+                    <div class="content_login_dropdown">
+                        <form class="login_dropdown_panel" action="//haloshare.org" method="post">
+                            <div class="login_dropdown_panel_container">
+                                <input class="login_dropdown_username" type="text" name="uname" placeholder="Username">
+                                <input class="login_dropdown_password" type="password" name="pass" placeholder="Password">
+                                <button class="login_dropdown_submission" type="submit" name="login">Login</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FILTERS -->
+        <div class="content_filters">
+            <div class="content_filters_table">
+                <table>
+                    <tr>
+                        <td>
+                            <div class="content_table_filter">
+                                <span>Filter by:</span>
+                                <select id="ct_select_sortFilter" onchange="javascript: setTimeout('__setPageFilter(\'ct_select_sortFilter\')', 1)">
+                                    <option data-filterType="sort" data-filter="all" selected="selected">All</option>
+                                    <option data-filterType="sort" data-filter="title">Title</option>
+                                    <option data-filterType="sort" data-filter="views">Views</option>
+                                    <option data-filterType="sort" data-filter="votes">Votes</option>
+                                    <option data-filterType="sort" data-filter="replies">Replies</option>
+                                    <option data-filterType="sort" data-filter="edited">Edited</option>
+                                    <option data-filterType="sort" data-filter="updated">Updated</option>
+                                    <option data-filterType="sort" data-filter="downloads">Downloads</option>
+                                </select>
+                                <select id="ct_select_typeFilter" onchange="javascript: setTimeout('__setResultFilter(\'ct_select_typeFilter\')', 1)">
+                                    <option data-filterType="gametype" data-filter="all" selected="selected">All</option>
+                                    <optgroup label="Halo Online: Gametypes">
+                                        <option data-filterType="gametype" data-filter="ctf" optiongroup="Halo Online: Gametypes">CTF</option>
+                                        <option data-filterType="gametype" data-filter="slayer" optiongroup="Halo Online: Gametypes">Slayer</option>
+                                        <option data-filterType="gametype" data-filter="oddball" optiongroup="Halo Online: Gametypes">Oddball</option>
+                                        <option data-filterType="gametype" data-filter="koth" optiongroup="Halo Online: Gametypes">King of The Hill</option>
+                                        <option data-filterType="gametype" data-filter="vip" optiongroup="Halo Online: Gametypes">VIP</option>
+                                        <option data-filterType="gametype" data-filter="juggernaut" optiongroup="Halo Online: Gametypes">Juggernaut</option>
+                                        <option data-filterType="gametype" data-filter="territories" optiongroup="Halo Online: Gametypes">Territories</option>
+                                        <option data-filterType="gametype" data-filter="assault" optiongroup="Halo Online: Gametypes">Assault</option>
+                                        <option data-filterType="gametype" data-filter="infection" optiongroup="Halo Online: Gametypes">Infection</option>
+                                        <option data-filterType="gametype" data-filter="multiple" optiongroup="Halo Online: Gametypes">Multiple</option>
+                                    </optgroup>
+                                </select>
+                                <select id="ct_select_nameFilter" onchange="javascript: setTimeout('__setResultFilter(\'ct_select_nameFilter\')', 1)">
+                                    <option data-filterType="map" data-filter="all" selected="selected">All</option>
+                                    <optgroup label="Multiplayer">
+                                        <option data-filterType="map" data-filter="diamondback" optiongroup="Multiplayer">Diamondback</option>
+                                        <option data-filterType="map" data-filter="edge" optiongroup="Multiplayer">Edge</option>
+                                        <option data-filterType="map" data-filter="guardian" optiongroup="Multiplayer">Guardian</option>
+                                        <option data-filterType="map" data-filter="icebox" optiongroup="Multiplayer">Icebox</option>
+                                        <option data-filterType="map" data-filter="narrows" optiongroup="Multiplayer">Narrows</option>
+                                        <option data-filterType="map" data-filter="reactor" optiongroup="Multiplayer">Reactor</option>
+                                        <option data-filterType="map" data-filter="standoff" optiongroup="Multiplayer">Standoff</option>
+                                        <option data-filterType="map" data-filter="the pit" optiongroup="Multiplayer">The Pit</option>
+                                        <option data-filterType="map" data-filter="valhalla" optiongroup="Multiplayer">Valhalla</option>
+                                        <option data-filterType="map" data-filter="last resort" optiongroup="Multiplayer">Last Resort</option>
+                                        <option data-filterType="map" data-filter="highground" optiongroup="Multiplayer">Highground</option>
+                                    </optgroup>
+                                    <optgroup label="User Created">
+                                        <option data-filterType="map" data-filter="flatgrass" optiongroup="User Created">Flatgrass</option>
+                                        <option data-filterType="map" data-filter="lockout" optiongroup="User Created">Lockout</option>
+                                        <option data-filterType="map" data-filter="station" optiongroup="User Created">Station</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- CONTAINER -->
+        <div class="content_container">
+
+            <!-- LEGEND -->
+            <div class="content_legend">
+                <ul>
+                    <li>
+                        <span id="favorite-icon">Upvote</span>
+                    </li>
+                    <li>
+                        <span id="userfile-icon">User Files</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- PAGINATION -->
+            <div class="content_pagination"></div>
+
+        </div>
+
+        <!-- SLOTS -->
+        <div class="content_slots">
+
+            <!-- SLOTS HEADER-->
+            <div class="content_slots_header">
+
+                <!-- RESULTS -->
+                <div class="content_slots_results">
+                    <p>Showing (0) of (0) total results</p>
+                </div>
+
+            </div>
+
+            <!-- SLOTS FOOTER-->
+            <div class="content_slots_footer">
+
+                <!-- SLOTS STATS -->
+                <div class="content_slots_loader">
+                    <i class="fa fa-circle-o-notch fa-spin fa-1x fa-fw"></i>
+                    <span>Not loading? Refresh the page and try again.</span>
+                </div>
+
+                <!-- SLOTS CONTAINER -->
+                <div class="content_slots_container">
+
+                    <!--<div class="content_slot">
+                        <div class="content_slot_outer">
+                            <div class="content_slot_inner variantName">
+                                <div class="content_slot_type variantName">
+                                    <p>NAN</p>
+                                </div>
+                                <div class="content_slot_header">
+                                    <ul class="content_slot_header_content">
+                                        <li class="right">Votes: 0</li>
+                                        <li name="slot_header_title">
+                                            <a href="#">TITLE</a>
+                                        </li>
+                                        <li class="right">
+                                            <a><img class="icon" src="http://halo.bungie.net/images/halo3stats/fileshareicons/bungiefavorite_icon.gif" /></a>
+                                            <a><img class="icon" src="http://halo.bungie.net/images/halo3stats/fileshareicons/linkedfile_icon.gif" /></a>
+                                        </li>
+                                        <li name="slot_header_author">
+                                            <span>By <a href="#">CREATOR</a></span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="content_slot_middle">
+                                    <a href="#">
+                                        <img class="content_slot_middle_thumb gametype" src="www/src/img/maps/unknown.png" />
+                                        <img class="content_slot_middle_thumb_overlay gametype" />
+                                    </a>
+                                    <ul class="content_slot_middle_content">
+                                        <li class="visible">Views: 0</li>
+                                        <li class="screenshot invisible"><a href="#">View High Res</a></li>
+                                        <li class="video invisible"><a href="#">Watch Now</a></li>
+                                        <li class="visible">Downloads: 0</li>
+                                        <li class="visible">Map: <a href="#">MAP</a></li>
+                                        <li class="invisible">Submitted: 00/00/00</li>
+                                        <li class="visible">Updated: 00/00/00</li>
+                                        <li class="invisible">Length: 00:00:00</li>
+                                        <li class="invisible"><a href="#">Report</a></li>
+                                    </ul>
+                                    <img class="content_slot_middle_variant gametype" src="www/src/img/gametypes/none.png" />
+                                </div>
+                                <div class="content_slot_footer gametype">
+                                    <p>Desciption</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tooltip">
+                            <div class="tooltipHeader">
+                                <div class="tooltipVariant">NAN</div>
+                                <div class="tooltipTitle">Title</div>
+                                <div class="tooltipAuthor">Creator</div>
+                            </div>
+                            <div class="tooltipContent">
+                                <div class="tooltip_thumb_container">
+                                    <img id="tooltipThumb" style="filter:flipH;" src="site/src/images/maps/unknown.png" />
+                                </div>
+                                <div class="tooltip_variant_container">
+                                    <img id="tooltipVariant" src="site/src/images/gametypes/none.png" />
+                                </div>
+                                <div class="tooltip_description_container">
+                                    <p id="tooltipDescription">Description</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+
+        <!-- FOOTER LEGAL -->
+        <div class="content_footer_legal">
+            <p>We are not bungie  | Content on this page was originally designed and maintained by &copy; Bungie  |  Built with the <a href="javascript:void(0)">HALOVAULT API</a>  |  Created by FantalityStudios</p>
+        </div>
+
+        <!-- FOOTER LOGOS -->
+        <div class="content_footer_logos">
+            <div class="content_footer_logos">
+                <ul>
+                    <li>
+                        <span class="footer-bg-logo"><a href="//www.bungie.net/">Bungie</a></span>
+                    </li>
+                    <li>
+                        <span class="footer-hv-logo"><a href="//haloshare.org/">HaloVault</a></span>
+                    </li>
+                    <li>
+                        <span class="footer-fs-logo"><a href="//www.fantalitystudios.com/">FantalityStudios</a></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <script type="text/javascript" src="site/scripts/fantality/fantality-tootip-min.js"></script>
+    <script type="text/javascript" src="site/scripts/fantality/fantality-slot-test.js"></script>
+    <script type="text/javascript" src="site/scripts/fantality/fantality-utilities-min.js"></script>
+    <script type="text/javascript" src="site/scripts/fantality/fantality-auth-min.js"></script>
+    <script type="text/javascript" src="site/scripts/fantality/fan-pagination-min_v1.0.js"></script>
+
+</body>
+</html>

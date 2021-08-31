@@ -1,0 +1,1 @@
+Not designed to be public, only HaloVault administrators may edit the front-end of DewShare at dewsha.re
